@@ -2,6 +2,12 @@ from flask import Flask, render_template, request
 import joblib
 import re
 import nltk
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
+
 from nltk.corpus import stopwords
 
 app = Flask(__name__)
