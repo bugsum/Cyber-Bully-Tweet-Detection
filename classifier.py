@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
-# Load the dataset (download from Kaggle or use your own)
-df = pd.read_csv("cyberbullying_tweets.csv")  # replace with actual file path
+# Load the dataset
+df = pd.read_csv("cyberbullying_tweets.csv") 
 
 def clean_text(text):
     # Lowercase
@@ -70,7 +70,7 @@ def predict_cyberbully_type(tweet: str):
     import re
     from nltk.corpus import stopwords
 
-    # Step 1: Clean the input tweet (similar to your dataset cleaning)
+    # Step 1: Clean the input tweet
     tweet = re.sub(r'http\S+|@\w+|#\w+|[^A-Za-z\s]', '', tweet)
     tweet = tweet.lower()
     tweet = ' '.join(word for word in tweet.split() if word not in stopwords.words('english'))
